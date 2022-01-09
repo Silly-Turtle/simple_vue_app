@@ -1,4 +1,5 @@
 # simple-vue-app
+This is a small app that fetches a users list and allows you to view, edit or delete users locally. 
 
 ## Project setup
 ```
