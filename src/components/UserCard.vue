@@ -12,7 +12,7 @@
         <h6 >{{'name: '}}<input v-model='newName'/></h6>
         <h6>{{'email: '}}<input v-model='newEmail'/></h6>
     </div>
-    <button v-if='isEditing' v-on:click="confirmEmailEdit">confirm edit</button>
+    <button v-if='isEditing' v-on:click="confirmEdit">confirm edit</button>
     <button v-on:click='toggleEditEmail'>{{this.isEditing ? 'cancel' : 'edit'}}</button>
     <button v-on:click='deleteUser'>delete</button>
   </div>
@@ -48,8 +48,7 @@ export default {
       }
       this.isEditing = !this.isEditing
     },
-    confirmEmailEdit () {
-      console.log('here is the newEmail and userId', this.newEmail, this.user.id)
+    confirmEdit () {
       this.$store.dispatch('updateUser', { email: this.newEmail, name: this.newName, username: this.newUsername, userId: this.user.id })
       this.toggleEditEmail()
     }
@@ -57,7 +56,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
   border: solid;
